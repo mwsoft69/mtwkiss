@@ -6,7 +6,7 @@
 
 #include "mtwkiss.h"
 
-/*KISS PRNG*/
+/*KISS PRNG.*/
 unsigned int Kiss(unsigned int xSeed,unsigned int ySeed,unsigned int zSeed,unsigned int cSeed)
 {
 	unsigned int x = xSeed ,y = ySeed ,z = zSeed , c = cSeed;
@@ -20,7 +20,7 @@ unsigned int Kiss(unsigned int xSeed,unsigned int ySeed,unsigned int zSeed,unsig
 
 }
 
-
+/*Opens and reads 4 bytes from /dev/urandom.*/
 unsigned int devRand()
 {
 
@@ -44,7 +44,7 @@ unsigned int devRand()
 }
 			
 		
-/*Inits the seeds from /dev/urandom.*/
+/*Inits the seeds with devRand().*/
 void initRandSeed(unsigned int *x,unsigned int *y,unsigned int *z,unsigned int *c)
 {
 	*x = devRand();

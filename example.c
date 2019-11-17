@@ -4,7 +4,7 @@
 int main()
 {
 	
-	/*These values could be any unsigned int  or set with initRandSeed() */
+	/*These values could be any unsigned int or 0 and then set with initRandSeed() */
 	unsigned int x=0,y=0,z=0,c=0;
 
 

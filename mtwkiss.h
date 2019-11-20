@@ -13,7 +13,4 @@ struct state{
 unsigned int devRand();
 unsigned int Kiss(struct state *s);
 
-/*void initRandSeed (unsigned int *x,unsigned int *y,unsigned int *z,unsigned int *c);
-*/
-
 #endif

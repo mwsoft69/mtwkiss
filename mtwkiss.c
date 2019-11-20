@@ -2,25 +2,34 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <fcntl.h>
-
-
 #include "mtwkiss.h"
 
-/*KISS PRNG.*/
-unsigned int Kiss(unsigned int xSeed,unsigned int ySeed,unsigned int zSeed,unsigned int cSeed)
+/*KISS PRNG 32-bit.*/
+unsigned int Kiss(struct state *s)
 {
-	unsigned int x = xSeed ,y = ySeed ,z = zSeed , c = cSeed;
+	//unsigned int x = xSeed ,y = ySeed ,z = zSeed , c = cSeed;
+	
+	s->x=0;
+	s->y=0;
+	s->z=0;
+	s->c=0;
+
 	unsigned long long t, a = 698769069ULL;
 
-	x = 69069*x+12345;
-	y ^= (y<<13); y ^= (y>>17); y ^= (y<<5);
-	t = a*z+c; c = (t>>32);
+	s->x = 69069*s->x+12345;
+	s->y ^= (s->y<<13);
+       	s->y ^= (s->y>>17);
+       	s->y ^= (s->y<<5);
 
-	return x+y+(z=t);
+	t = a*s->z+s->c; 
+	s->c = (t>>32);
+
+	//return x+y+(z=t);
+	return (s->x+s->y+(s->z+t));
 
 }
 
-/*Opens and reads 4 bytes from /dev/urandom.*/
+/*Opens and reads 4 bytes from /dev/urandom.
 unsigned int devRand()
 {
 
@@ -42,9 +51,9 @@ unsigned int devRand()
 
 	return r;
 }
-			
+*/			
 		
-/*Inits the seeds with devRand().*/
+/*Inits the seeds with devRand().
 void initRandSeed(unsigned int *x,unsigned int *y,unsigned int *z,unsigned int *c)
 {
 	*x = devRand();
@@ -52,3 +61,6 @@ void initRandSeed(unsigned int *x,unsigned int *y,unsigned int *z,unsigned int *
 	*z = devRand();
 	*c = devRand() % 698769068 +1;
 }
+*/
+
+

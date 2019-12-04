@@ -8,7 +8,7 @@ int main()
 	struct state *s;
 	s = malloc(sizeof(struct state));
 
-	unsigned int randNum = 0;
+	unsigned int randNum = s;
 
 	printf("random number is %d\n",randNum);
 

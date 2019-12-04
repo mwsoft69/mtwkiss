@@ -12,6 +12,8 @@ int main()
 
 	printf("random number is %d\n",randNum);
 
+	/*Free struct memory.*/
+	free(s);
 	
 	return 0;
 }

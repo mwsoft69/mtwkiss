@@ -8,7 +8,7 @@ int main()
 	struct state *s;
 	s = malloc(sizeof(struct state));
 	
-	/*set seeds using devRand(). You can also define your own seeds also.*/
+	/*set seeds using devRand(). You can also define your own seeds.*/
 	s->x = devRand();
 	s->y = devRand();
 	s->z = devRand();
